@@ -1,3 +1,4 @@
+# 007.py
 '''
 1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가?
 8이 포함되어 있는 숫자의 갯수를 카운팅 하는 것이 아니라
@@ -6,13 +7,8 @@ ex) 8808 - 3
     8888 - 4
 '''
 
-a = 8808
-b = 8888
-
 def sol(input) :
-    input = str(input)
-
-    return input.count('8')
+    return str(input).count('8')
 
 
 if __name__ == '__main__' :
