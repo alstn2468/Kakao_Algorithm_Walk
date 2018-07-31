@@ -3,6 +3,7 @@
 [김민수](https://github.com/alstn2468)
 -------------------------------
 
+<img src="images/kakao.jpeg" width="600" height="auto">
 
 ### Language
 - Python
