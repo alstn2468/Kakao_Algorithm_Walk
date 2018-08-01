@@ -25,7 +25,6 @@
 출력: 똘기 떵이 호치 새초미
 '''
 
-
 input = input().split()
 
 t = int(input[0])
@@ -47,8 +46,7 @@ else :
         input.insert(0, input[-1])
         del input[-1]
 
-
-print('Result : ' + ' '.join(input))
+print(' '.join(input))
 
 
 '''
