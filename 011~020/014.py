@@ -1,10 +1,10 @@
 # 014.py
 '''
 x       f(x)        return
-15      7           Output : 1 + bin_fun(7)              -> 1
-7       3           Output : 1 + 1 + bin_fun(3)          -> 11
-3       1           Output : 1 + 1 + 1 + bin_fun(1)     -> 111
-1       1           Output : 1 + 1 + 1 + 1               -> 1111
+15      7           1 + bin_fun(7)            -> 1
+7       3           1 + 1 + bin_fun(3)        -> 11
+3       1           1 + 1 + 1 + bin_fun(1)    -> 111
+1       1           1 + 1 + 1 + 1             -> 1111
 '''
 def bin_fun(input) :
     if input < 2 :
