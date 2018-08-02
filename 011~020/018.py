@@ -22,8 +22,16 @@ list = [1, 3, 2, 5, 4, 7, 6, 9, 8]
 
 print('- Before Sorting -')
 print(list)
+'''
+- Before Sorting -
+[1, 3, 2, 4, 5, 7, 6, 9, 8]
+'''
 
 list = InsertionSort(list)
 
 print('- After Sorting -')
 print(list)
+'''
+- After Sorting -
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+'''
