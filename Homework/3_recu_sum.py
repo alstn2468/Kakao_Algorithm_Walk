@@ -8,3 +8,7 @@ def sol(num) :
 
 print(sol(10))
 print(sol(100))
+'''
+55
+5050
+'''

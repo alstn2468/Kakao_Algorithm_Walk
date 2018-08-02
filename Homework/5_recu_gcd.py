@@ -6,12 +6,11 @@ def sol(num1, num2) :
     else :
         return sol(num2, num1 % num2)
 
-
 print(sol(12, 6))
 '''
 6
 '''
-print(sol(144, 12))
+print(sol(12, 144))
 '''
 12
 '''
