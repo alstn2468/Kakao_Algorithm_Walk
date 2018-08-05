@@ -17,17 +17,17 @@ def sol(Input) :
     return result
 
 if __name__ == '__main__' :
-    list = [1, 3, 4, 8, 13, 17, 20]
+    Input = [1, 3, 4, 8, 13, 17, 20]
 
-    print(sol(list))
+    print(sol(Input))
+    '''
+    [3, 4]
+    '''
 
-def sol(Input) :
     pairs = list(zip(Input[0:], Input[1:]))
-    pairs.sort(key = lambda x : abs(x[1] - x[0]))
+    pairs.sort(key = lambda x : x[1] - x[0])
 
-    return pairs[0]
-
-if __name__ == '__main__' :
-    list = [1, 3, 4, 8, 13, 17, 20]
-
-    print(sol(list))
+    print(pairs[0])
+    '''
+    (3, 4)
+    '''
