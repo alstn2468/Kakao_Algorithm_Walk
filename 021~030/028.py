@@ -45,33 +45,103 @@ Single(S), Double(D), Triple(T)은 점수마다 하나씩 존재한다.
 7	  1D2S3T*	  59	  1^2 + 2^1 * 2 + 3^3 * 2
 '''
 
-input = input()
-result = []
-recent_num_idx = 0
+input = ['1S2D*3T', '1D2S#10S', '1D2S0T',
+         '1S*2T*3S', '1D#2S*3S', '1T2D3D#', '1D2S3T*']
 
-for i in range(len(input)) :
-    if input[i].isnumeric() :
-        result.append(int(input[i]))
-        recent_num_idx += 1
+def sol(input) :
+    result = []
+    recent_num_idx = 0
 
-        if input[i + 1].isnumeric() :
-            result[recent_num_idx - 1] = int(str(result[recent_num_idx - 1]) + input[i + 1])
-            i += 1
+    for i in range(len(input)) :
+        if input[i].isnumeric() :
+            result.append(int(input[i]))
+            recent_num_idx += 1
 
-    elif input[i] is '#' :
-        result[recent_num_idx - 1] = -result[recent_num_idx - 1]
+            if input[i + 1].isnumeric() :
+                result[recent_num_idx - 1] = int(str(result[recent_num_idx - 1]) + input[i + 1])
+                i += 1
 
-    elif input[i] is '*' :
-        for i in range(0, recent_num_idx) :
-            result[i] = result[i] * 2
+        elif input[i] is '#' :
+            result[recent_num_idx - 1] = -result[recent_num_idx - 1]
 
-    elif input[i] is 'S' :
-        pass
+        elif input[i] is '*' :
+            for i in range(recent_num_idx - 2, recent_num_idx) :
+                result[i] = result[i] * 2
 
-    elif input[i] is 'D' :
-        result[recent_num_idx - 1] = result[recent_num_idx - 1] ** 2
+        elif input[i] is 'S' :
+            pass
 
-    elif input[i] is 'T' :
-        result[recent_num_idx - 1] = result[recent_num_idx - 1] ** 3
+        elif input[i] is 'D' :
+            result[recent_num_idx - 1] = result[recent_num_idx - 1] ** 2
 
-print(sum(result))
+        elif input[i] is 'T' :
+            result[recent_num_idx - 1] = result[recent_num_idx - 1] ** 3
+
+        else :
+            raise InterruptedError
+
+    return sum(result)
+
+for i in input :
+    print('Input  : ', i, '\nResult : ', sol(i))
+
+'''
+Input  :  1S2D*3T
+Result :  37
+Input  :  1D2S#10S
+Result :  9
+Input  :  1D2S0T
+Result :  3
+Input  :  1S*2T*3S
+Result :  23
+Input  :  1D#2S*3S
+Result :  5
+Input  :  1T2D3D#
+Result :  -4
+Input  :  1D2S3T*
+Result :  60
+'''
+
+def sol(input) :
+    import re
+
+    shot = re.findall(r'\d{1,2}[SDT][*#]?', input)
+
+    opt = [1, 1, 1]
+
+    for i, s in enumerate(shot) :
+
+        if s[-1] == '#' :
+            opt[i] *= -1
+            shot[i] = shot[i][:-1]
+
+        elif s[-1] == '*' :
+            opt[i] *= 2
+            shot[i] = shot[i][:-1]
+
+            if i :
+                opt[i-1] *= 2
+
+    point = [(int(s[:-1]) ** '0SDT'.find(s[-1]) * o) for s, o in zip(shot, opt)]
+
+    return sum(point)
+
+for i in input :
+    print('Input  : ', i, '\nResult : ', sol(i))
+
+'''
+Input  :  1S2D*3T
+Result :  37
+Input  :  1D2S#10S
+Result :  9
+Input  :  1D2S0T
+Result :  3
+Input  :  1S*2T*3S
+Result :  23
+Input  :  1D#2S*3S
+Result :  5
+Input  :  1T2D3D#
+Result :  -4
+Input  :  1D2S3T*
+Result :  60
+'''
