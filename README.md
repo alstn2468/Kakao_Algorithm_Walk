@@ -5,10 +5,6 @@
 
 <img src="images/kakao.jpeg" width="400" height="auto">
 
-### Language
-- Python
-<img src="images/Logo.png" width="400" height="auto">
+### Certificate
 
-### Text Editor
-- Atom
-<img src="images/Atom.png" width="400" height="auto">
+<img src="images/certificate.jpg" width="600" height="auto">
